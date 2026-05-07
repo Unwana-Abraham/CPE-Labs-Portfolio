@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abrahams's TaskFlow</title>
+    <link rel="stylesheet" href="todo.css"> 
+</head>
+<body>
+<header>
+    <h1>Unwana Abraham TaskFlow:
+    22/EG/CO/1669
+    </h1>
+    <button id="themeToggle" onclick="toggleTheme()"> 🌙 </button>
+</header>
+<main>
+    <div class="calendar">
+        <div class="calendar-header">
+            <button id="prevMonth" onclick="changeMonth(-1)"> ◀ </button>
+            <h3 id="monthYear"></h3>
+            <button id="nextMonth" onclick="changeMonth(1)"> ▶ </button>
+        </div>
+        <div class="calendar-days" id="calendarDays"></div>
+    </div>
+    <div class="app">
+        <h2 id="selectedDateText"></h2>
+        <div class="input-area">
+            <input type="text" id="taskInput" placeholder="What needs to be done?">
+            <button id="addBtn" onclick="addTask()">Add</button>
+        </div>
+        <ul id="taskList"></ul>
+    </div>
+</main>
+<footer>
+    <p>© 2026 Abraham's TaskFlow</p>
+</footer>
+<script src="todo.js"></script>
+</body>
+</html>
+  
