@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="todo.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+<body>
+<header style="width: 100%; display: flex; justify-content: space-between; padding: 20px; box-sizing: border-box;">
+    <h1>TaskFlow : 22/EG/CO/1669</h1>
+    <button id="themeToggle" onclick="toggleTheme()"> 🌙 </button>
+</header>
+
+<main style="width: 100%; display: flex; flex-direction: column; align-items: center;">
+    <div class="calendar">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <button onclick="changeMonth(-1)"> ◀ </button>
+            <h3 id="monthYear"></h3>
+            <button onclick="changeMonth(1)"> ▶ </button>
+        </div>
+        <div id="calendarDays" style="display: grid; grid-template-columns: repeat(7, 1fr); gap: 5px; margin-top: 10px;"></div>
+    </div>
+
+    <div class="app">
+        <h2 id="selectedDateText">Tasks</h2>
+        <div class="input-area">
+            <input type="text" id="taskInput" placeholder="What needs to be done?">
+            <button onclick="addTask()">Add</button>
+        </div>
+        <ul id="taskList"></ul>
+    </div>
+</main>
+
+    
+    <script src="todo.js"></script>
+</body>
+</html>

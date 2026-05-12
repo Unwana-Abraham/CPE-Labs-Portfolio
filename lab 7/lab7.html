@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Events</title>
+</head>
+<body>
+   
+    <h1>22/EG/CO/1669</h1>
+    
+    <button id="btn">Click Me</button>
+    <input type="text" id="input" placeholder="Type here">
+    
+<div id="colorBox" style="
+    width: 100px; 
+    height: 100px; 
+    background-color: lightgray; 
+    border: 1px solid black;
+    border-radius: 15px;      
+    display: flex;            
+    align-items: center;      
+    justify-content: center;
+    text-align: center;
+    transition: 0.3s;         
+    cursor: pointer;">
+    Hover!
+</div>
+
+<div style="margin-top: 20px;">
+    <h3>Count: <span id="counterDisplay">0</span></h3>
+    <button id="incrementBtn">Click to Add</button>
+</div>
+
+    
+    <form id="emailForm">
+    <input type="text" id="emailInput" placeholder="Enter your email">
+    
+    <button type="submit">Check Email</button>
+</form>
+
+<p id="feedback"></p>
+"
+    <div style="margin-top: 20px; padding: 10px; border: 1px dashed blue;">
+    <h2 id="timerMessage">Wait for it...</h2>
+</div>
+
+    <div style="margin-top: 20px;">
+    <a id="myLink" href="https://www.google.com">Click to go to Google</a>
+    <p id="linkFeedback"></p>
+</div>
+
+    
+    
+    <script>
+        document.getElementById("btn").addEventListener("click", function() {
+            alert("Button clicked!");
+        });
+
+        document.getElementById("input").addEventListener("keyup", function(event) {
+            console.log("Key pressed: " + event.key);
+        });
+        
+        const myBox = document.getElementById("colorBox");
+
+
+myBox.addEventListener("mouseover", function() {
+myBox.style.backgroundColor = "yellow";
+});
+
+myBox.addEventListener("mouseout", function() {
+    console.log("Mouse has left the box!");
+    myBox.style.backgroundColor = "lightgray";
+});
+
+
+
+let count = 0;
+
+const display = document.getElementById("counterDisplay");
+const btn = document.getElementById("incrementBtn");
+
+
+btn.addEventListener("click", function() {
+    count = count + 1; 
+    
+    display.innerText = count;
+});
+
+
+
+const myForm = document.getElementById("emailForm");
+const emailBox = document.getElementById("emailInput");
+const feedbackText = document.getElementById("feedback");
+
+myForm.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const userInput = emailBox.value;
+
+    
+    if (userInput.includes("@")) {
+        
+        feedbackText.innerText = "Success! This is a valid email.";
+        feedbackText.style.color = "green";
+    } else {
+        
+        feedbackText.innerText = "Error: Please include an '@' in your email.";
+        feedbackText.style.color = "red";
+    }
+});
+
+
+const message = document.getElementById("timerMessage");
+
+setTimeout(function() {
+    message.innerText = "Time is up! 5 seconds have passed.";
+    message.style.color = "blue";
+}, 5000); 
+
+
+const link = document.getElementById("myLink");
+const linkFeedback = document.getElementById("linkFeedback");
+
+
+link.addEventListener("click", function(event) {
+    event.preventDefault();
+
+    
+    linkFeedback.innerText = "The link was clicked, but I stopped it from leaving the page!";
+    linkFeedback.style.color = "purple";
+    
+    console.log("Navigation prevented.");
+});
+
+        
+    </script>
+</body>
+</html>

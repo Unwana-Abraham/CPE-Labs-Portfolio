@@ -22,13 +22,6 @@ body {
     align-items: center;
 }
 
-header {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    padding: 20px;
-    box-sizing: border-box;
-}
 
 .calendar, .app {
     backdrop-filter: blur(15px);
@@ -41,51 +34,10 @@ header {
     box-shadow: 0 8px 30px rgba(0,0,0,0.2);
 }
 
-.calendar-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+.input-area { display: flex; gap: 10px; }
+input { flex: 1; padding: 10px; border-radius: 8px; border: none; }
+button { background: var(--accent); border: none; padding: 10px; border-radius: 8px; color: white; cursor: pointer; }
 
-.calendar-days {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 5px;
-    margin-top: 10px;
-}
-
-.day {
-    padding: 10px;
-    text-align: center;
-    cursor: pointer;
-    border-radius: 8px;
-}
-
-.selected {
-    background: var(--accent);
-    color: white;
-}
-
-.input-area { 
-    display: flex; 
-    gap: 10px; 
-}
-
-input { 
-    flex: 1; 
-    padding: 10px; 
-    border-radius: 8px; 
-    border: none; 
-}
-
-button { 
-    background: var(--accent); 
-    border: none; 
-    padding: 10px; 
-    border-radius: 8px; 
-    color: white; 
-    cursor: pointer; 
-}
 
 li {
     list-style: none;
@@ -93,28 +45,39 @@ li {
     padding: 10px;
     display: flex;
     justify-content: space-between;
-    align-items: center;
     border-radius: 8px;
     background: rgba(255,255,255,0.1);
 }
 
-.done { 
-    text-decoration: line-through; 
-    opacity: 0.6; 
-}
+.done { text-decoration: line-through; opacity: 0.6; }
 
 
-@media screen and (max-width: 600px) {
+@media (max-width: 500px) {
+    
     .calendar, .app {
-        width: 95%;
-        padding: 10px;
+        width: 95%; 
+        padding: 10px; 
+        margin-top: 10px;
     }
-    .input-area { 
-        flex-direction: column; 
+
+    header h1 {
+        font-size: 1.2rem; 
     }
-    button { 
-        width: 100%; 
-        padding: 12px; 
+
+    
+    .day {
+        padding: 5px; 
+        font-size: 0.9rem;
+    }
+
+    
+    .input-area {
+        flex-direction: column;
+        gap: 8px;
     }
 }
 
+header {
+    flex-wrap: wrap; 
+    gap: 10px;
+}

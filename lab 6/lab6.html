@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM Manipulation</title>
+    <style>
+        .hidden{
+            display:none;
+        }
+    </style>
+</head>
+<body>
+    <h1>22/EG/CO/1669</h1>
+    <h1 id="title">Original Title</h1>
+    <button onclick="changeTitle()">Change Title</button>
+    
+    <p id="myParagraph">This text will change color.</p>
+    <button onclick="changeColor()">Change Color</button>
+    
+    <ul id="myList">
+  <li>First Item</li>
+</ul>
+
+<button onclick="addItem()">Add New Item</button>
+
+<div class="content-box">
+    <h2>Surprise!</h2>
+    <p>You have found the hidden message</p>
+</div>
+<button onclick="toggleContent()">Show/Hide Message</button>
+
+<input type="text" id="userInput" placeholder="Type something here">
+
+<button onclick="displayInput()">Display My Text</button>
+
+<div id="displayArea"></div>
+
+
+
+    <script> 
+    function changeTitle() {
+        document.getElementById("title").innerHTML = "NEW TITLE!";
+    }
+    
+    function changeColor() {
+        let para = document.getElementById("myParagraph");
+        para.style.color = "red";
+    }
+    
+    function addItem() {
+    let newItem = document.createElement("li");
+    newItem.textContent = "I was created by JavaScript!";
+    let list = document.getElementById("myList");
+    list.appendChild(newItem);
+}
+
+function toggleContent() {
+    let box = document.querySelector(".content-box");
+    box.classList.toggle("hidden");
+}
+
+function displayInput() {
+    let text = document.getElementById("userInput").value;
+    let area = document.getElementById("displayArea")
+    area.textContent = "You typed: " + text;
+}
+
+function handleError() {
+    let ghostElement = document.getElementById("nonExistentID");
+
+    if (ghostElement) {
+        ghostElement.textContent = "Found it!";
+    } else {
+        
+        console.error("Error: The element was not found on the page!");
+    }
+}
+
+
+
+    </script>
+</body>
+</html>
